@@ -1,5 +1,3 @@
-# Install and load required packages
-install.packages("readxl")
 library(readxl)
 
 # Read the Excel files for mainland and island data

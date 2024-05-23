@@ -3,8 +3,8 @@ library(vegan)
 library(readxl)
 
 # Set the file paths for the geographical distance matrix and the dissimilarity matrix
-geo_file <- "/Users/marierobert/Desktop/gen.xlsx"  # Geographical distance matrix file path
-diss_file <- "/Users/marierobert/Desktop/syll.xlsx"  # Dissimilarity matrix file path
+geo_file <- "/Users/marierobert/Desktop/geo.xlsx"  # Geographical distance matrix file path
+diss_file <- "/Users/marierobert/Desktop/sonicL0Perc.xlsx"  # Dissimilarity matrix file path
 
 # Read the geographical distance matrix and dissimilarity matrix from Excel files
 geo_df <- readxl::read_excel(geo_file)
@@ -26,3 +26,12 @@ mantel_result <- mantel(geo_df, diss_df, method = "pearson", permutations = 999)
 # Print the Mantel test result
 print(mantel_result)
 
+# Perform Mantel test with the geographical distance matrix and the dissimilarity matrix
+mantel_result <- mantel(geo_df, diss_df, method = "pearson", permutations = 999)
+
+# Extract the p-value from the Mantel test result
+p_value <- mantel_result$signif
+
+# Print the Mantel test result including p-value
+print(mantel_result)
+print(p_value)
