@@ -1,12 +1,11 @@
-# Load necessary libraries
 library(readxl)    # For reading Excel files
 library(dunn.test) # For Dunn's test
 library(tidyverse) # For data manipulation
 
-# Read the Excel file
+# Reading the Excel file (Eco-Acoustic dataset)
 data <- read_excel("/Users/marierobert/Desktop/All Data.xlsx")
 
-# Select the columns of interest
+# Selecting the columns of interest
 frequency_data <- data %>%
   select(Site, LowFreq, HighFreq, CtrFreq, PeakFreq, Freq1, Freq2)
 

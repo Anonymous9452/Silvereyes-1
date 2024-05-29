@@ -1,14 +1,13 @@
-# Load the necessary library
 library(readxl)
 
-# Read the Excel file
+# Reading the Excel file (presented vertically, with syllable names in column A and site names in row 1 as headers; Site occurrences are listed from column B to column E; Total occurrences is listed in column F with the header "Total_Occurrences"; data is organised from most combined use to least)
 birdsong_data <- read_excel("/Users/marierobert/Desktop/L0Distribution.xlsx")
 
-# Calculate the mean occurrence rank for each syllable
+# Calculating the mean occurrence rank for each syllable
 birdsong_data$Mean_Rank <- rowMeans(birdsong_data[, 2:5])
 
-# Calculate the correlation between mean occurrence ranks and frequencies
+# Calculating the correlation between mean occurrence ranks and frequencies
 correlation <- cor.test(birdsong_data$Mean_Rank, birdsong_data$Total_Occurrences, method = "spearman")
 
-# Print the correlation coefficient
+# Printing the correlation coefficient
 print(correlation)

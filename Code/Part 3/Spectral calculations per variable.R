@@ -1,11 +1,10 @@
-# Load necessary libraries
 library(readxl)
 library(dplyr)
 
-# Read the Excel file
-data <- read_excel("/Users/marierobert/Desktop/All DataL2.xlsx")
+# Reading the Excel file (Eco-Acoustic dataset)
+data <- read_excel("/Users/marierobert/Desktop/All Data.xlsx")
 
-# Filter data for syllables called "All edges"
+# Filtering data for syllables called "All edges"
 edges_data <- data %>%
   filter(L2 == "All edges")
 
@@ -21,5 +20,5 @@ summary_stats_delta <- edges_data %>%
     Mean_Delta = mean(Delta)
   )
 
-# Print summary statistics for Delta
+# Printing summary statistics for Delta
 print(summary_stats_delta)

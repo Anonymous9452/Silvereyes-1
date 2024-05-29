@@ -1,18 +1,17 @@
-# Load necessary libraries
-library(readxl)    # For reading Excel files
-library(ggplot2)   # For data visualization
+library(readxl)   
+library(ggplot2)  
 
-# Read the Excel file
+# Reading the Excel file (Eco-Acoustic dataset including all spectral data)
 data <- read_excel("/Users/marierobert/Desktop/All Data.xlsx")
 
-# Create a strip plot
+# Creating a strip plot
 strip_plot <- ggplot(data, aes(x = Loc, y = LowFreq, color = Loc)) +
-  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.7) +  # Add jitter to avoid overlapping points
+  geom_jitter(position = position_jitter(width = 0.2), alpha = 0.7) +  # Adding jitter to avoid overlapping points
   labs(title = "Strip Plot of Low Frequency by Location",
        x = "Location",
        y = "Low Frequency") +
-  scale_color_manual(values = c("#00B0F0", "black")) +  # Set colors for island and mainland
+  scale_color_manual(values = c("#00B0F0", "black")) +  # Setting colors for island and mainland
   theme_minimal()
 
-# Display the plot
+# Displaying the plot
 print(strip_plot)

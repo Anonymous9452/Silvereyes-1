@@ -1,11 +1,11 @@
-# Load the required packages
+# Loading required packages
 library(vegan)
 library(boot)
 
-# Manually enter the occurrences of syllables for a site
-site_data <- c(103,104,110,110,115,116,119,139,160,171,234,242)  # Enter your data within the parentheses
+# Manually entering occurrences of syllables for a site
+site_data <- c(103,104,110,110,115,116,119,139,160,171,234,242)
 
-# Function to calculate the Chao2 diversity estimate
+# Calculating Chao2 diversity estimate
 chao2_estimate <- function(x) {
   observed <- sum(x > 0)
   singletons <- sum(x == 1)
@@ -14,21 +14,21 @@ chao2_estimate <- function(x) {
   return(chao2)
 }
 
-# Function to perform bootstrapping and calculate the Chao2 diversity estimate with CI
+# Performing bootstrapping and calculating Chao2 diversity estimate with CI
 chao2_boot <- function(data, indices) {
   chao2_estimate(data[indices])
 }
 
-# Set the number of bootstrap replicates
-B <- 1000  # You can adjust the number of replicates as needed
+# Setting the number of bootstrap replicates
+B <- 1000
 
-# Perform bootstrapping
+# Performing bootstrapping
 boot_results <- boot(site_data, chao2_boot, R = B)
 
-# Compute the 95% CI
+# Computing the 95% CI
 ci <- boot.ci(boot_results, type = "bca")$bca[, 4]
 
-# Print the Chao2 diversity estimate with 95% CI
+# Printing the Chao2 diversity estimate with 95% CI
 chao2 <- chao2_estimate(site_data)
 lower_ci <- quantile(boot_results$t, 0.025)
 upper_ci <- quantile(boot_results$t, 0.975)

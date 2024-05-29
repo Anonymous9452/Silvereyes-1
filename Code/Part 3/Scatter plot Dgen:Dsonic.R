@@ -1,10 +1,10 @@
 library(readxl)
 library(ggplot2)
 
-# Read the Excel file
-data <- read_excel("/Users/marierobert/Desktop/L1Geo-syll.xlsx")
+# Reading the Excel file (site pairs listed from rows 2 to 8, geo in column B, sonic in column C)
+data <- read_excel("/Users/marierobert/Desktop/L1geo-sonic.xlsx")
 
-# Plot scatter plot without the red line
+# Plotting scatter plot
 ggplot(data, aes(x = Dsonic, y = Dgeo, label = data[[1]])) +
   geom_point() +
   geom_text(vjust = -1) +  # Adjust text alignment

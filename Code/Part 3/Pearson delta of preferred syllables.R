@@ -27,7 +27,7 @@ set7_median <- 1.4  # Example median value for Set 7
 set7_max <- 1.6     # Example maximum value for Set 7
 set7_min <- 1.2     # Example minimum value for Set 7
 
-# Combine the data into matrices
+# Combining the data into matrices
 delta_values <- matrix(c(set1_median, set1_max, set1_min,
                          set2_median, set2_max, set2_min,
                          set3_median, set3_max, set3_min,
@@ -37,8 +37,8 @@ delta_values <- matrix(c(set1_median, set1_max, set1_min,
                          set7_median, set7_max, set7_min),
                        ncol = 3, byrow = TRUE)
 
-# Calculate the Pearson correlation
+# Calculating the Pearson correlation
 correlation <- cor(delta_values)
 
-# Print the correlation matrix
+# Printing the correlation matrix
 print(correlation)

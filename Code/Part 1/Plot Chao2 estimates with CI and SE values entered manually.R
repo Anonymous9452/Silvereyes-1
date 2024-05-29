@@ -1,14 +1,14 @@
-# Define site names and corresponding Chao2 estimates and standard errors (SE)
+# Defining site names and corresponding Chao2 estimates and standard errors (SE)
 sites <- c("FC", "HI", "LEI", "SC")
 chao2_estimates <- c(154.8, 239.7, 204.9, 246)
 SE <- c(25.5, 11.9, 16, 17.8)
 CI_lower <- c(119.4, 223.1, 181.8, 221.1)
 CI_upper <- c(218, 270.5, 242.9, 291.6)
 
-# Create a data frame with the information
+# Creating a data frame with the information
 chao2_data <- data.frame(sites, chao2_estimates, SE, CI_lower, CI_upper)
 
-# Plot the Chao2 estimates as a boxplot
+# Plotting the Chao2 estimates as a boxplot
 library(ggplot2)
 
 ggplot(chao2_data, aes(x = sites)) +
